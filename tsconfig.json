@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "jsx": "react",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "lib": [
+      "DOM", "ESNext"
+    ]
+  },
+  "include": [
+    "server/**/*",
+    "src/**/*"
+  ],
+}
