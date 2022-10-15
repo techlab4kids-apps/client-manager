@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
+    "resolveJsonModule": true,
     "jsx": "react",
     "target": "esnext",
     "moduleResolution": "node",

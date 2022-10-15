@@ -1,19 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
-import { HashRouter, Route, Routes} from 'react-router-dom';
-import OneRoute from './routes/one/one.route';
-import TwoRoute from './routes/two/two.route';
+import Header from "./components/header/header.component";
+import Footer from "./components/footer/footer.component";
+import Body from './components/body/body.component';
+
+import { createSlice, configureStore } from '@reduxjs/toolkit'
+
+const clientCounterSlice = createSlice({
+    name: 'clientCounter',
+    initialState: {
+        value: 0
+    },
+    reducers: {
+        incremented: state => {
+            // Redux Toolkit allows us to write "mutating" logic in reducers. It
+            // doesn't actually mutate the state because it uses the Immer library,
+            // which detects changes to a "draft state" and produces a brand new
+            // immutable state based off those changes
+            state.value += 1
+        },
+        decremented: state => {
+            state.value -= 1
+        }
+    }
+})
+
+export const { incremented, decremented } = clientCounterSlice.actions
+
+export const store = configureStore({
+    reducer: clientCounterSlice.reducer
+})
 
 ReactDOM.render(
-    <HashRouter>
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route path="one" element={<OneRoute />} />
-                <Route path="two" element={<TwoRoute />} />
-            </Route>
-        </Routes>
-    </HashRouter>,
-  document.getElementById('root')
+    <React.Fragment>
+        <Header />
+        <Body />
+        {/*<Footer />*/}
+    </React.Fragment>,
+    document.getElementById("root")
 );

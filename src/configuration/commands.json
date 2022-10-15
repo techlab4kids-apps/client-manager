@@ -1,0 +1,106 @@
+[
+  {
+    "commandName": "Manda messaggio (script wait false)",
+    "scriptName": "notify",
+    "scriptParameters": "",
+    "scriptWait": false,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": false
+  },
+  {
+    "commandName": "Manda messaggio",
+    "scriptName": "notify",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": false
+  },
+  {
+    "commandName": "Dir (script wait false)",
+    "scriptName": "dir",
+    "scriptParameters": "",
+    "scriptWait": false,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Dir (script wait true)",
+    "scriptName": "dir",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": false
+  },
+  {
+    "commandName": "Svuota la cartella documenti",
+    "scriptName": "EmptyDocumentFolder",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Copia i documenti dal server al client",
+    "scriptName": "CopyDocumentsFromServerToClients",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Copia i documenti modificati nella sessione corrente dal client al server",
+    "scriptName": "CopyDocumentsFromClientsToServerPartial",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Copia tutti i documenti dal client al server",
+    "scriptName": "CopyDocumentsFromClientsToServerFull",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Blocca i client",
+    "scriptName": "LockClients",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Clients",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Sblocca i client",
+    "scriptName": "UnLockClients",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Clients",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Apri la cartella Documenti",
+    "scriptName": "OpenDocumentsFolder",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Chiudi la cartella Documenti",
+    "scriptName": "CloseDocumentsFolder",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true
+  },
+  {
+    "commandName": "Spegni i client",
+    "scriptName": "ShutdownClients",
+    "scriptParameters": "",
+    "scriptWait": true,
+    "commandType": "Clients",
+    "scriptWorkingDirectory": true
+  }
+]

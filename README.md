@@ -32,3 +32,18 @@ npm run package
 ```
 npm run make
 ```
+<h3>
+scambio dati electron react
+</h3>
+
+```
+https://patrickpassarella.com/blog/creating-electron-react-app
+```
+
+<h3>
+lettura json di configurazione
+</h3>
+
+```
+https://stackoverflow.com/questions/66645834/use-local-json-file-with-react-and-electron
+```
