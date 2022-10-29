@@ -13,9 +13,9 @@ import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
 import {CardHeader, Icon} from "@mui/material";
 import {orange} from "@mui/material/colors";
 
-import {Command, Commands} from '../../models/command'
-import {launchCommand} from "../../services/commandLauncher"
+import {Command, Commands} from '../../../server/models/command'
 import {CardContent} from "./CardStyles"
+import {launchCommand} from "../../services/commandLauncher";
 
 function  getIcon(commandType: string) {
     let icon;

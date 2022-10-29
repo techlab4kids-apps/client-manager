@@ -5,7 +5,7 @@ import {Section} from "./CommandCardsStyles";
 import jsonCommands from 'src/configuration/commands.json';
 
 import CommandCard from "../card/card";
-import {Command, Commands} from "../../models/command";
+import {Command, Commands} from "../../../server/models/command";
 
 export default function CommandCardsComponent() {
 

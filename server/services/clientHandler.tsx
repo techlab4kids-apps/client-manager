@@ -1,7 +1,7 @@
 import axios from "axios";
-// import {incremented, store} from "../../src";
 import {Command} from "../models/command";
 import {Client} from "../models/client";
+// import {incremented, store} from "../../src";
 
 export class ClientHandler {
     clients = new Map<string, Client>();
@@ -27,7 +27,7 @@ export class ClientHandler {
         this.clients.forEach(client => {
             console.log(`Launching command ${command.scriptName} with parameters ${command.scriptParameters} and wait: ${command.scriptWait} to host: ${client.ip}`)
 
-            axios.post(`http://api/clients/${client.ip}/commands/${command.scriptName}`, command);
+            axios.post(`http://${client.ip}/commands/${command.scriptName}`, command);
         })
     }
 }

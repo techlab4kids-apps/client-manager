@@ -8,8 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import {Badge} from "@mui/material";
 import ComputerTwoToneIcon from "@mui/icons-material/ComputerTwoTone";
-import PubSub from "pubsub-js"
-import {store} from "../../index";
+import store from "../../store";
 
 export default function Header() {
 

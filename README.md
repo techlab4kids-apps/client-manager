@@ -47,3 +47,11 @@ lettura json di configurazione
 ```
 https://stackoverflow.com/questions/66645834/use-local-json-file-with-react-and-electron
 ```
+
+<h3>
+Wsl
+</h3>
+```
+sudo apt install libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev
+sudo apt-get install libasound2
+```
