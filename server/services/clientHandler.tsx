@@ -1,33 +1,20 @@
-import axios from "axios";
 import {Command} from "../models/command";
-import {Client} from "../models/client";
-// import {incremented, store} from "../../src";
+import {clientNameSpace} from "../app";
 
 export class ClientHandler {
-    clients = new Map<string, Client>();
-
-    registerClient(client: Client) {
-        let retValue;
-        if (this.clients.has(client.hostname)) {
-            let oldClientIP = this.clients.get(client.hostname).ip;
-            let clientIP = client.ip;
-            this.clients.delete(client.hostname);
-            retValue = `Replacing client ${client.hostname} already present with IP: ${oldClientIP} with new IP ${clientIP}`
-        } else {
-            retValue = `Added new client ${client.hostname} with IP: ${client.ip}`
-            // store.dispatch(incremented())
-        }
-        const now = new Date();
-        client.updateTime = now.toLocaleString();
-        this.clients = this.clients.set(client.hostname, client);
-        return retValue;
-    }
-
     public executeCommand(command: Command) {
-        this.clients.forEach(client => {
-            console.log(`Launching command ${command.scriptName} with parameters ${command.scriptParameters} and wait: ${command.scriptWait} to host: ${client.ip}`)
+        let clients = clientNameSpace.sockets;
 
-            axios.post(`http://${client.ip}/commands/${command.scriptName}`, command);
+        clients.forEach(async client =>  {
+            console.log(`Launching command ${command.scriptName} with parameters ${command.scriptParameters} and wait: ${command.scriptWait} to host: ${client.data.ip}`)
+
+            // let retValue = await new Promise(resolve => client.emit("launchCommand", command, (retValue: string) => resolve(retValue)));
+
+            client.emit('launchCommand', command, function (retValue: string) {
+                console.log("retValue: " + JSON.stringify(retValue));
+            });
+
+            // if (retValue) console.log("retValue: " + retValue);
         })
     }
 }

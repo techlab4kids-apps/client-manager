@@ -1,4 +1,4 @@
-import {Client} from "../models/client"
+import {ClientData} from "../models/clientData"
 
 import request from 'supertest';
 import React from "react";

@@ -1,12 +1,12 @@
 import {describe, expect, test} from '@jest/globals';
-import {Client} from "../models/client"
+import {ClientData} from "../models/clientData"
 import {ClientHandler} from "./clientHandler"
 
 describe("ClientHandler tests", () => {
     test('registering a new client increase clients count by 1', () => {
         let clientHandler = new ClientHandler();
 
-        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as Client;
+        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as ClientData;
         let retValue = clientHandler.registerClient(client1)
 
         expect(clientHandler.clients.size).toBe(1);
@@ -16,10 +16,10 @@ describe("ClientHandler tests", () => {
     test("registering an already present client doesn't increase clients count", () => {
         let clientHandler = new ClientHandler();
 
-        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as Client;
+        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as ClientData;
         clientHandler.registerClient(client1)
 
-        let client2 = {"hostname": "pippo", "ip": "192.168.10.1"} as Client;
+        let client2 = {"hostname": "pippo", "ip": "192.168.10.1"} as ClientData;
         let retValue = clientHandler.registerClient(client1)
 
         expect(clientHandler.clients.size).toBe(1);
@@ -29,10 +29,10 @@ describe("ClientHandler tests", () => {
     test("registering a client client with and already registered host name doesn't increase clients count", () => {
         let clientHandler = new ClientHandler();
 
-        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as Client;
+        let client1 = {"hostname": "pippo", "ip": "192.168.10.1"} as ClientData;
         clientHandler.registerClient(client1)
 
-        let client2 = {"hostname": "pippo", "ip": "192.168.10.2"} as Client;
+        let client2 = {"hostname": "pippo", "ip": "192.168.10.2"} as ClientData;
         let retValue = clientHandler.registerClient(client1)
 
         expect(clientHandler.clients.size).toBe(1);

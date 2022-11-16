@@ -8,15 +8,21 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import {Badge} from "@mui/material";
 import ComputerTwoToneIcon from "@mui/icons-material/ComputerTwoTone";
-import store from "../../store";
+import create from 'zustand'
+import {clientsStore} from "../../App";
 
 export default function Header() {
 
+    const useClientsStore = create(clientsStore)
+
     let clientCount = 0;
-    store.subscribe(() => {
-        clientCount = store.getState();
-        console.log("clientCount: " + clientCount)
-    })
+    // store.subscribe(() => {
+    //     clientCount = store.getState();
+    //     console.log("clientCount: " + clientCount)
+    // })
+
+    let clients = useClientsStore((state) => state.clients);
+    clientCount = clients.length;
 
     return (
         <AppBar position="static">

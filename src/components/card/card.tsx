@@ -16,6 +16,7 @@ import {orange} from "@mui/material/colors";
 import {Command, Commands} from '../../../server/models/command'
 import {CardContent} from "./CardStyles"
 import {launchCommand} from "../../services/commandLauncher";
+import {clientHandler} from "../../services/clientHandler";
 
 function  getIcon(commandType: string) {
     let icon;
@@ -49,7 +50,7 @@ function handleClick(event: React.MouseEvent<HTMLAnchorElement> | React.MouseEve
         scriptWait: scriptWait,
         commandType: ""
     }
-    launchCommand(command);
+    clientHandler.executeCommand(command);
 }
 
 export default function CommandCard({commandName, scriptName, scriptParameters, scriptWait, commandType}: Command) {
