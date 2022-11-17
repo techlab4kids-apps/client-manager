@@ -1,5 +1,6 @@
 import {Command} from "../models/command";
 import {clientNameSpace} from "../app";
+import { waitUntil } from 'async-wait-until';
 
 export class ClientHandler {
     public executeCommand(command: Command) {
@@ -8,13 +9,19 @@ export class ClientHandler {
         clients.forEach(async client =>  {
             console.log(`Launching command ${command.scriptName} with parameters ${command.scriptParameters} and wait: ${command.scriptWait} to host: ${client.data.ip}`)
 
-            // let retValue = await new Promise(resolve => client.emit("launchCommand", command, (retValue: string) => resolve(retValue)));
+            let returnValue: any;
 
             client.emit('launchCommand', command, function (retValue: string) {
-                console.log("retValue: " + JSON.stringify(retValue));
+                returnValue = retValue;
+                console.log("retValue: " + JSON.stringify(returnValue));
             });
 
-            // if (retValue) console.log("retValue: " + retValue);
+            try{
+                await waitUntil(() => (returnValue != undefined), {timeout: 20000});
+            }
+            catch (e) {
+                console.log("Command execution seems to take too long... Going on")
+            }
         })
     }
 }

@@ -1,0 +1,64 @@
+{
+  "sites": [
+    {
+      "name": "Materiale pubblico",
+      "url": "https://drive.google.com/drive/folders/0B9Mjps8uP0siMkxaRjJ4aW5lTDg"
+    },
+    {
+      "name": "Hello Ruby!",
+      "url": "http://fls-server/helloRuby/"
+    },
+    {
+      "name": "Le maghe dei numeri",
+      "url": "http://fls-server/maghe/"
+    },
+    {
+      "name": "Le maghe dei numeri (semplificato)",
+      "url": "http://fls-server/maghe2/"
+    },
+    {
+      "name": "File Uploader - FabLABSulcis",
+      "url": "http://fls-server:3000/"
+    },
+    {
+      "name": "Sistema solare",
+      "url": "http://fls-server/sistema_solare/"
+    },
+    {
+      "name": "Otto",
+      "url": "http://fls-server/otto/"
+    },
+    {
+      "name": "Matematica",
+      "url": "http://fls-server/matematica/"
+    },
+    {
+      "name": "Hello Ruby (semplificato)",
+      "url": "http://fls-server/hr5c/"
+    },
+    {
+      "name": "Geometria",
+      "url": "http://fls-server/geometria/"
+    },
+    {
+      "name": "Ada Lovelace",
+      "url": "http://fls-server/Ada_Lovelace/"
+    },
+    {
+      "name": "Ciauu!",
+      "url": "http://localhost:3110/player/?name=gc&pin=60234"
+    },
+    {
+      "name": "PanQuiz",
+      "url": "https://play.panquiz.com/"
+    },
+    {
+      "name": "Kahoot",
+      "url": "https://kahoot.it/"
+    },
+    {
+      "name": "BookCreator",
+      "url": "https://app.bookcreator.com/sign-in"
+    }
+  ]
+}

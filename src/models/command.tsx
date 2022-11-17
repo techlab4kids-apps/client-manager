@@ -1,9 +1,9 @@
 
 export interface Command {
+    commandDescription: string,
     commandName: string,
-    scriptName: string,
-    scriptParameters: string,
-    scriptWait: boolean,
+    commandParameters: string,
+    commandWait: boolean,
     commandType: string
 }
 

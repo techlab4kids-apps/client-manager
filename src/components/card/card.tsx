@@ -13,9 +13,8 @@ import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
 import {CardHeader, Icon} from "@mui/material";
 import {orange} from "@mui/material/colors";
 
-import {Command, Commands} from '../../../server/models/command'
 import {CardContent} from "./CardStyles"
-import {launchCommand} from "../../services/commandLauncher";
+import {Command} from "../../models/command";
 import {clientHandler} from "../../services/clientHandler";
 
 function  getIcon(commandType: string) {
@@ -40,20 +39,20 @@ function  getIcon(commandType: string) {
     return (<Componenent sx={{ color: orange[500] }}/>);
 }
 
-function handleClick(event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>, scriptName: string, scriptParameters: string, scriptWait: boolean) {
-    console.log(`Launching command ${scriptName} with parameters ${scriptParameters} and wait: ${scriptWait}`);
+function handleClick(event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>, commandName: string, commandParameters: string, commandWait: boolean) {
+    console.log(`Launching command ${commandName} with parameters ${commandParameters} and wait: ${commandWait}`);
 
     const command: Command = {
-        commandName: "scriptName",
-        scriptName: scriptName,
-        scriptParameters: scriptParameters,
-        scriptWait: scriptWait,
+        commandDescription: "scriptName",
+        commandName: commandName,
+        commandParameters: commandParameters,
+        commandWait: commandWait,
         commandType: ""
     }
     clientHandler.executeCommand(command);
 }
 
-export default function CommandCard({commandName, scriptName, scriptParameters, scriptWait, commandType}: Command) {
+export default function CommandCard({commandDescription, commandName, commandParameters, commandWait, commandType}: Command) {
     return (
         <Grid2 xs={4}>
             <Card sx={{maxWidth: 345}}>
@@ -64,14 +63,14 @@ export default function CommandCard({commandName, scriptName, scriptParameters, 
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h6" component="div" align={"center"}>
-                        {commandName}
+                        {commandDescription}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {scriptParameters}
+                    <Typography variant="body2" color="text.secondary" align={"center"}>
+                        {commandName} {commandParameters}
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                    <Button variant="contained" size="large" onClick={(e) => handleClick(e, scriptName, scriptParameters, scriptWait)}>Esegui</Button>
+                    <Button variant="contained" size="large" onClick={(e) => handleClick(e, commandName, commandParameters, commandWait)}>Esegui</Button>
                 </CardActions>
             </Card>
         </Grid2>

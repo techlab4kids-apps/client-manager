@@ -1,106 +1,218 @@
 [
   {
-    "commandName": "Manda messaggio (script wait false)",
-    "scriptName": "notify",
-    "scriptParameters": "",
-    "scriptWait": false,
+    "commandDescription": "Manda messaggio",
+    "commandName": "notify",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": false
+    "scriptWorkingDirectory": false,
+    "commandConfirm": false
   },
   {
-    "commandName": "Manda messaggio",
-    "scriptName": "notify",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Dir (script wait false)",
+    "commandName": "dir",
+    "commandParameters": "",
+    "commandWait": false,
     "commandType": "Documents",
-    "scriptWorkingDirectory": false
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   },
   {
-    "commandName": "Dir (script wait false)",
-    "scriptName": "dir",
-    "scriptParameters": "",
-    "scriptWait": false,
+    "commandDescription": "Dir (script wait true)",
+    "commandName": "dir",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": false,
+    "commandConfirm": false
   },
   {
-    "commandName": "Dir (script wait true)",
-    "scriptName": "dir",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Svuota la cartella documenti",
+    "commandName": "EmptyDocumentFolder.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": false
+    "scriptWorkingDirectory": true,
+    "commandConfirm": true
   },
   {
-    "commandName": "Svuota la cartella documenti",
-    "scriptName": "EmptyDocumentFolder",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Copia i documenti dal server al client",
+    "commandName": "CopyDocumentsFromServerToClients.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": true
   },
   {
-    "commandName": "Copia i documenti dal server al client",
-    "scriptName": "CopyDocumentsFromServerToClients",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Copia i documenti modificati nella sessione corrente dal client al server",
+    "commandName": "CopyDocumentsFromClientsToServerPartial.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": true
   },
   {
-    "commandName": "Copia i documenti modificati nella sessione corrente dal client al server",
-    "scriptName": "CopyDocumentsFromClientsToServerPartial",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Copia tutti i documenti dal client al server",
+    "commandName": "CopyDocumentsFromClientsToServerFull.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": true
   },
   {
-    "commandName": "Copia tutti i documenti dal client al server",
-    "scriptName": "CopyDocumentsFromClientsToServerFull",
-    "scriptParameters": "",
-    "scriptWait": true,
-    "commandType": "Documents",
-    "scriptWorkingDirectory": true
-  },
-  {
-    "commandName": "Blocca i client",
-    "scriptName": "LockClients",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Blocca i client",
+    "commandName": "LockClients.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Clients",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   },
   {
-    "commandName": "Sblocca i client",
-    "scriptName": "UnLockClients",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Sblocca i client",
+    "commandName": "UnLockClients.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Clients",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   },
   {
-    "commandName": "Apri la cartella Documenti",
-    "scriptName": "OpenDocumentsFolder",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Apri la cartella Documenti",
+    "commandName": "OpenDocumentsFolder.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi la cartella Documenti",
+    "commandName": "CloseDocumentsFolder.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Documents",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Spegni i client",
+    "commandName": "ShutdownClients.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Clients",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": true
+  },
+  {
+    "commandDescription": "Apri il browser internet",
+    "commandName": "runBrowser.sh",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   },
   {
-    "commandName": "Chiudi la cartella Documenti",
-    "scriptName": "CloseDocumentsFolder",
-    "scriptParameters": "",
-    "scriptWait": true,
+    "commandDescription": "Apri condivisione file",
+    "commandName": "/opt/LANShare",
+    "commandParameters": "",
+    "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   },
   {
-    "commandName": "Spegni i client",
-    "scriptName": "ShutdownClients",
-    "scriptParameters": "",
-    "scriptWait": true,
-    "commandType": "Clients",
-    "scriptWorkingDirectory": true
+    "commandDescription": "Chiudi condivisione file",
+    "commandName": "killall",
+    "commandParameters": "-9 LANShare",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi i browser",
+    "commandName": "killall",
+    "commandParameters": "-9 chrome",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi Inkscape",
+    "commandName": "killall",
+    "commandParameters": "-9 inkscape",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Aggiorna All'assemblaggio!",
+    "commandName": "copyAllAssemblaggio.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Aggiorna TuxPaint",
+    "commandName": "copyTuxPaint.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Testo più grande (141 DPI)",
+    "commandName": "change_text_dpi.sh",
+    "commandParameters": "141",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Testo medio (115 DPI)",
+    "commandName": "change_text_dpi.sh",
+    "commandParameters": "115",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Testo più piccolo (91 DPI)",
+    "commandName": "change_text_dpi.sh",
+    "commandParameters": "91",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Aggiorna gli script",
+    "commandName": "updateScripts.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Aggiorna Client Configurator",
+    "commandName": "updateClientConfigurator.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Process",
+    "scriptWorkingDirectory": true,
+    "commandConfirm": false
   }
 ]

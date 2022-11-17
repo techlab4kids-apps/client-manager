@@ -60,6 +60,9 @@ clientManagerNameSpace.on("connection", socket => {
     console.log("client manager connected with ID: " + socket.id);
     clientManagerSocket = socket;
 
+    const sockets = Array.from(clientNameSpace.sockets).map(socket => socket[0]);
+    clientManagerSocket.emit("updatedClients", {clients: sockets})
+
     socket.on("launchCommand", (command: Command) => {
         console.log("command received: " + JSON.stringify(command));
         clientHandler.executeCommand(command);
@@ -70,11 +73,12 @@ export const clientNameSpace = io.of("/client-namespace");
 
 clientNameSpace.on("connection", clientSocket => {
     console.log("Client with ID: " + clientSocket.id + " is now connected");
+
     clientSocket.on("introduce", (clientData: ClientData) => {
         if(clientManagerSocket) {
             clientSocket.data = clientData;
             const sockets = Array.from(clientNameSpace.sockets).map(socket => socket[0]);
-            clientManagerSocket.emit("updatedClients", {clients: sockets})
+            clientManagerSocket.emit("updatedClients", {clients: sockets});
         }
         else{
             clientSocket.emit("server_not_ready", "Server not ready yet")
@@ -86,7 +90,7 @@ clientNameSpace.on("connection", clientSocket => {
         console.log("Disconnecting: client");
         const sockets = Array.from(clientNameSpace.sockets).map(socket => socket[0]);
         try{
-            clientManagerSocket.emit("updatedClients", {clients: sockets})
+            clientManagerSocket.emit("updatedClients", {clients: sockets});
         }
         catch (e){
             console.log("Exception notifying client disconnection: " + JSON.stringify(e));
