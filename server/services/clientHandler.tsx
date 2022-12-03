@@ -7,7 +7,7 @@ export class ClientHandler {
         let clients = clientNameSpace.sockets;
 
         clients.forEach(async client =>  {
-            console.log(`Launching command ${command.scriptName} with parameters ${command.scriptParameters} and wait: ${command.scriptWait} to host: ${client.data.ip}`)
+            console.log(`Launching command ${command.commandName} with parameters ${command.commandParameters} and wait: ${command.commandWait} to host: ${client.data.ip}`)
 
             let returnValue: any;
 

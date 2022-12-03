@@ -1,0 +1,15 @@
+.MuiCardHeader-root{
+    padding: 8px 16px 2px;
+}
+
+.MuiOutlinedInput-root{
+    height: 32px;
+}
+
+.MuiOutlinedInput-root {
+    padding: 0px;
+}
+
+.MuiAutocomplete-input {
+    padding: 0px 0px 7.5px 0px;
+}

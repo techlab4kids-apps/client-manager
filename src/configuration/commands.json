@@ -5,7 +5,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": false,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
@@ -14,7 +14,7 @@
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
@@ -23,16 +23,16 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": false,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
     "commandDescription": "Svuota la cartella documenti",
     "commandName": "EmptyDocumentFolder.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": true
   },
   {
@@ -41,7 +41,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": true
   },
   {
@@ -50,7 +50,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": true
   },
   {
@@ -59,97 +59,107 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": true
   },
   {
     "commandDescription": "Blocca i client",
     "commandName": "LockClients.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Clients",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Sblocca i client",
     "commandName": "UnLockClients.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Clients",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Apri la cartella Documenti",
     "commandName": "OpenDocumentsFolder.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Chiudi la cartella Documenti",
     "commandName": "CloseDocumentsFolder.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Documents",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Spegni i client",
     "commandName": "ShutdownClients.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Clients",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": true
   },
   {
     "commandDescription": "Apri il browser internet",
     "commandName": "runBrowser.sh",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
-    "commandConfirm": false
-  },
-  {
-    "commandDescription": "Apri condivisione file",
-    "commandName": "/opt/LANShare",
-    "commandParameters": "",
-    "commandWait": true,
-    "commandType": "Process",
-    "scriptWorkingDirectory": true,
-    "commandConfirm": false
-  },
-  {
-    "commandDescription": "Chiudi condivisione file",
-    "commandName": "killall",
-    "commandParameters": "-9 LANShare",
-    "commandWait": true,
-    "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Chiudi i browser",
     "commandName": "killall",
     "commandParameters": "-9 chrome",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri condivisione file",
+    "commandName": "/opt/LANShare",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": true,
+    "commandConfirm": false
+  },
+
+  {
+    "commandDescription": "Chiudi condivisione file",
+    "commandName": "killall",
+    "commandParameters": "-9 LANShare",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri Inkscape",
+    "commandName": "inkscape",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
     "commandConfirm": false
   },
   {
     "commandDescription": "Chiudi Inkscape",
     "commandName": "killall",
     "commandParameters": "-9 inkscape",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
@@ -158,7 +168,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
@@ -167,34 +177,43 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Testo più grande (141 DPI)",
     "commandName": "change_text_dpi.sh",
     "commandParameters": "141",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Testo medio (115 DPI)",
     "commandName": "change_text_dpi.sh",
     "commandParameters": "115",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
     "commandDescription": "Testo più piccolo (91 DPI)",
     "commandName": "change_text_dpi.sh",
     "commandParameters": "91",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Comando personalizzato",
+    "commandName": "comando",
+    "commandParameters": "",
     "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
@@ -203,7 +222,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   },
   {
@@ -212,7 +231,7 @@
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Process",
-    "scriptWorkingDirectory": true,
+    "commandScript": true,
     "commandConfirm": false
   }
 ]

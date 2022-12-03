@@ -4,7 +4,9 @@ export interface Command {
     commandName: string,
     commandParameters: string,
     commandWait: boolean,
-    commandType: string
+    commandType: string,
+    commandScript: boolean,
+    commandConfirm: boolean
 }
 
 export type Commands = Command[];
