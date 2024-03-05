@@ -13,3 +13,7 @@
 .MuiAutocomplete-input {
     padding: 0px 0px 7.5px 0px;
 }
+
+.MuiGrid2-root{
+    margin-bottom: 20px;
+}

@@ -68,11 +68,12 @@ export default function CommandCard({
                                         commandConfirm
                                     }: Command) {
     const [open, toggleOpen] = React.useState(false);
-    const [siteName, setSiteName] = useState('');
-    const [value, setValue] = useState<SiteOptionType | null>(null);
-    const [siteUrl, setSiteUrl] = useState('');
+    // const [siteName, setSiteName] = useState<(SiteOptionType | null)>(null);
+    const [site, setSite] = React.useState<SiteOptionType | null>(null);
+    const [value, setValue] = React.useState<SiteOptionType | null>(null);
+    // const [siteUrl, setSiteUrl] = useState('');
     const [dialogValue, setDialogValue] = React.useState({name: '', url: '',});
-    const [commandState, setCommandState] = useState('');
+    const [commandNameState, setCommandNameState] = useState('');
     const [commandParametersState, setCommandParametersState] = useState('');
     const [commandWaitState, setCommandWaitState] = useState(false);
     const [commandScriptState, setCommandScriptState] = useState(false);
@@ -94,14 +95,13 @@ export default function CommandCard({
         setConfirmCommandExecution(false);
         if (event.currentTarget.innerText == "ESEGUI") {
             // setConfirmCommandExecution(true);
-            executeCommand();
+            executeCommand(command);
         }
         setOpenDialog(false);
-
     };
 
     const [siteListCached, setSiteListCached] = useState(() => {
-        // getting stored value
+        // getting stored site
         const saved = localStorage.getItem("siteListCached");
         const initialValue: SiteOptionType[] = JSON.parse(saved);
         return initialValue || siteList;
@@ -110,7 +110,7 @@ export default function CommandCard({
     const handleCommandFormChange = (currentEvent: BaseSyntheticEvent) => {
         switch (currentEvent.target.name) {
             case "command":
-                setCommandState(currentEvent.target.value);
+                setCommandNameState(currentEvent.target.value);
                 break;
             case "parameters":
                 setCommandParametersState(currentEvent.target.value);
@@ -140,15 +140,15 @@ export default function CommandCard({
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setValue({
+        setSite({
             name: dialogValue.name,
             url: dialogValue.url
         });
-        localStorage.setItem("siteListCached", JSON.stringify(value));
+        localStorage.setItem("siteListCached", JSON.stringify(site));
         handleClose();
     };
 
-    function executeCommand() {
+    function executeCommand(command: Command) {
         // if (confirmCommandExecution) {
             console.log(`Launching command ${command.commandName} with parameters ${command.commandParameters} and wait: ${command.commandWait}`);
             clientHandler.executeCommand(command);
@@ -157,7 +157,7 @@ export default function CommandCard({
 
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>, commandName: string, commandParameters: string, commandWait: boolean, commandScript: boolean, commandConfirm: boolean) => {
         if (commandName == "runBrowser.sh") {
-            commandParameters = value.url;
+            commandParameters = site.url;
             commandScript = true;
         }
         const command: Command = {
@@ -177,25 +177,26 @@ export default function CommandCard({
         }
         else{
             // setConfirmCommandExecution(true);
-            executeCommand()
+            executeCommand(command)
         }
 
     }
 
     const handleCommandClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
         const command: Command = {
-            commandName: commandName,
-            commandParameters: commandParameters,
-            commandWait: commandWait,
-            commandScript: commandScript,
+            commandName: commandNameState,
+            commandParameters: commandParametersState,
+            commandWait: commandWaitState,
+            commandScript: commandScriptState,
             commandDescription: "scriptName",
             commandType: "",
-            commandConfirm: false
+            commandConfirm: confirmCommandExecution
         }
 
         setCommand(command);
         // setConfirmCommandExecution(true);
-        executeCommand()
+        executeCommand(command)
     }
 
     function runBrowserBlock() {
@@ -212,71 +213,60 @@ export default function CommandCard({
                     <Typography variant="body2" color="text.secondary" align={"center"}>
                         {commandName} {commandParameters}
                     </Typography>
-                    <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        fullWidth
-                        options={siteListCached}
-                        value={siteName}
-                        getOptionLabel={(option) => {
-                            // e.g value selected with enter, right from the input
-                            if (typeof option === 'string') {
-                                return option;
-                            }
-                            if (option.inputValue) {
-                                return option.inputValue;
-                            }
-                            return option.name;
-                        }}
 
+                    <Autocomplete
+                        // value={value}
                         onChange={(event, newValue) => {
                             if (typeof newValue === 'string') {
-                                // timeout to avoid instant validation of the dialog's form.
-                                setTimeout(() => {
-                                    toggleOpen(true);
-                                    setDialogValue({
-                                        name: "",
-                                        url: newValue,
-                                    });
+                                setSite({
+                                    url: newValue,
                                 });
-                            } else if (newValue && newValue.inputValue) {
-                                toggleOpen(true);
-                                setDialogValue({
-                                    url: newValue.inputValue,
-                                    name: '',
+                            } else if (newValue && ((newValue as unknown) as SiteOptionType).inputValue) {
+                                // Create a new value from the user input
+                                setSite({
+                                    url: ((newValue as unknown) as SiteOptionType).inputValue,
                                 });
                             } else {
-                                setValue(newValue);
+                                setSite((newValue as unknown) as SiteOptionType);
                             }
                         }}
                         filterOptions={(options, params) => {
                             const filtered = filter(options, params);
 
-                            // if (params.inputValue !== '') {
-                            //     filtered.push({
-                            //         inputValue: params.inputValue,
-                            //         name: `Aggiungi "${params.inputValue}"`,
-                            //         url: `Aggiungi "${params.inputValue}"`
-                            //     });
-                            // }
+                            const { inputValue } = params;
+                            // Suggest the creation of a new value
+                            const isExisting = options.some((option) => inputValue === option.url);
+                            if (inputValue !== '' && !isExisting) {
+                                filtered.push({
+                                    inputValue,
+                                    url: `Add "${inputValue}"`,
+                                });
+                            }
 
                             return filtered;
                         }}
-
+                        selectOnFocus
+                        clearOnBlur
+                        handleHomeEndKeys
+                        id="free-solo-with-text-demo"
+                        options={siteListCached}
+                        getOptionLabel={(option) => {
+                            // Value selected with enter, right from the input
+                            if (typeof option === 'string') {
+                                return option;
+                            }
+                            // Add "xxx" option created dynamically
+                            if (option.inputValue) {
+                                return option.inputValue;
+                            }
+                            // Regular option
+                            return option.url;
+                        }}
+                        renderOption={(props, option) => <li {...props}>{option.url}</li>}
+                        sx={{ width: 300 }}
                         freeSolo
-                        disableClearable
-                        renderOption={(props, option) => <li {...props}>{option.name}</li>}
-
                         renderInput={(params) => (
-                            <TextField
-                                required
-                                {...params}
-                                label="Url"
-                                InputProps={{
-                                    ...params.InputProps,
-                                    type: 'search',
-                                }}
-                            />
+                            <TextField {...params} label="Url del sito" />
                         )}
                     />
 
@@ -326,7 +316,7 @@ export default function CommandCard({
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
                     <Button variant="contained" size="large"
-                            onClick={(e) => handleClick(e, commandName, commandParameters, commandWait, commandScript, false)}>Esegui</Button>
+                            onClick={(e) => handleClick(e, "runBrowser.sh", site.url, false, true, false)}>Esegui</Button>
                 </CardActions>
             </Card>
         </Grid2>);

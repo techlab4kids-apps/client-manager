@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-padding: 20px 20px;
+padding: 10px 20px;
 background: #fff3e0;
 position: absolute;
 // bottom: 0;

@@ -4,7 +4,6 @@ import {serverSocket} from "../App";
 export class ClientHandler {
     public executeCommand(command: Command) {
         serverSocket.emit("launchCommand", command);
-
     }
 }
 

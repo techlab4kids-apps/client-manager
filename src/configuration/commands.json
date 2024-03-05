@@ -1,34 +1,7 @@
 [
   {
-    "commandDescription": "Manda messaggio",
-    "commandName": "notify",
-    "commandParameters": "",
-    "commandWait": true,
-    "commandType": "Documents",
-    "commandScript": false,
-    "commandConfirm": false
-  },
-  {
-    "commandDescription": "Dir (script wait false)",
-    "commandName": "dir",
-    "commandParameters": "",
-    "commandWait": false,
-    "commandType": "Documents",
-    "commandScript": true,
-    "commandConfirm": false
-  },
-  {
-    "commandDescription": "Dir (script wait true)",
-    "commandName": "dir",
-    "commandParameters": "",
-    "commandWait": true,
-    "commandType": "Documents",
-    "commandScript": false,
-    "commandConfirm": false
-  },
-  {
     "commandDescription": "Svuota la cartella documenti",
-    "commandName": "EmptyDocumentFolder.sh",
+    "commandName": "resetDocumentsFolder.sh",
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Documents",
@@ -37,16 +10,7 @@
   },
   {
     "commandDescription": "Copia i documenti dal server al client",
-    "commandName": "CopyDocumentsFromServerToClients.sh",
-    "commandParameters": "",
-    "commandWait": true,
-    "commandType": "Documents",
-    "commandScript": true,
-    "commandConfirm": true
-  },
-  {
-    "commandDescription": "Copia i documenti modificati nella sessione corrente dal client al server",
-    "commandName": "CopyDocumentsFromClientsToServerPartial.sh",
+    "commandName": "copyFromServer.sh",
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
@@ -55,7 +19,16 @@
   },
   {
     "commandDescription": "Copia tutti i documenti dal client al server",
-    "commandName": "CopyDocumentsFromClientsToServerFull.sh",
+    "commandName": "copyAllFiles.sh",
+    "commandParameters": "",
+    "commandWait": true,
+    "commandType": "Documents",
+    "commandScript": true,
+    "commandConfirm": true
+  },
+  {
+    "commandDescription": "Copia i documenti modificati nella sessione corrente dal client al server",
+    "commandName": "copyNewFiles.sh",
     "commandParameters": "",
     "commandWait": true,
     "commandType": "Documents",
@@ -64,7 +37,7 @@
   },
   {
     "commandDescription": "Blocca i client",
-    "commandName": "LockClients.sh",
+    "commandName": "screen_lock.sh",
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Clients",
@@ -73,7 +46,7 @@
   },
   {
     "commandDescription": "Sblocca i client",
-    "commandName": "UnLockClients.sh",
+    "commandName": "screen_unlock.sh",
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Clients",
@@ -82,29 +55,29 @@
   },
   {
     "commandDescription": "Apri la cartella Documenti",
-    "commandName": "OpenDocumentsFolder.sh",
-    "commandParameters": "",
+    "commandName": "thunar",
+    "commandParameters": "~/Documenti",
     "commandWait": false,
     "commandType": "Documents",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
     "commandDescription": "Chiudi la cartella Documenti",
-    "commandName": "CloseDocumentsFolder.sh",
-    "commandParameters": "",
+    "commandName": "killall",
+    "commandParameters": "thunar",
     "commandWait": false,
     "commandType": "Documents",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
     "commandDescription": "Spegni i client",
-    "commandName": "ShutdownClients.sh",
-    "commandParameters": "",
+    "commandName": "shutdown",
+    "commandParameters": "-h now",
     "commandWait": false,
     "commandType": "Clients",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": true
   },
   {
@@ -122,7 +95,7 @@
     "commandParameters": "-9 chrome",
     "commandWait": false,
     "commandType": "Process",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
@@ -131,7 +104,7 @@
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Process",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
 
@@ -141,7 +114,7 @@
     "commandParameters": "-9 LANShare",
     "commandWait": false,
     "commandType": "Process",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
@@ -159,7 +132,97 @@
     "commandParameters": "-9 inkscape",
     "commandWait": false,
     "commandType": "Process",
-    "commandScript": true,
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri Calc",
+    "commandName": "libreoffice --calc",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi Calc",
+    "commandName": "killall",
+    "commandParameters": "-9 soffice.bin",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri TuxPaint",
+    "commandName": "tuxpaint",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi TuxPaint",
+    "commandName": "killall",
+    "commandParameters": "-9 tuxpaint",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri GCompris",
+    "commandName": "/opt/gcompris-qt-3.2-Linux/bin/gcompris-qt.sh",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi GCompris",
+    "commandName": "killall",
+    "commandParameters": "-9 gcompris-qt",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri Scratch Junior",
+    "commandName": "/opt/scratchjr/ScratchJr",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi Scratch Junior",
+    "commandName": "killall",
+    "commandParameters": "-9 ScratchJr",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Apri Writer",
+    "commandName": "libreoffice --writer",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Chiudi Writer",
+    "commandName": "killall",
+    "commandParameters": "-9 soffice.bin",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": false,
     "commandConfirm": false
   },
   {
@@ -211,9 +274,9 @@
     "commandDescription": "Comando personalizzato",
     "commandName": "comando",
     "commandParameters": "",
-    "commandWait": true,
+    "commandWait": false,
     "commandType": "Process",
-    "commandScript": true,
+    "commandScript": false,
     "commandConfirm": false
   },
   {
