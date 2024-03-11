@@ -16,8 +16,6 @@
     "postbuildlinux": "tsc && mv dist/server build && rm -rf dist",
     "postbuildwin": "tsc && xcopy dist/server build && rmdir /s dist",
     "electron": "wait-on tcp:3000 && electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
     "app:dir": "electron-builder --dir",
     "app:dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
