@@ -24,6 +24,8 @@ export default function Header() {
     let clients = useClientsStore((state) => state.clients);
     clientCount = clients.length;
 
+    console.log("version number ", process.env.VERSION);
+
     return (
         <AppBar position="static">
             <Toolbar>

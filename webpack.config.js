@@ -31,6 +31,11 @@ module.exports = {
     new webpack.SourceMapDevToolPlugin({ exclude: /node_modules/ }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+    }),
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(
+          process.env.npm_package_version,
+      )
     })
   ],
   devServer: { contentBase: './' }

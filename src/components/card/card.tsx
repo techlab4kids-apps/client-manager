@@ -55,7 +55,28 @@ function getIcon(commandType: string) {
             break;
     }
     const Componenent = icon;
-    return (<Componenent sx={{color: orange[500]}}/>);
+    return (<Componenent sx={{color: getCardColor(commandType), fontSize: "1.5em", display: "block"}}/>);
+}
+
+function getCardColor(commandType: string) {
+    let color;
+    switch (commandType) {
+        case "Documents":
+            color = "#4287f5";
+            break;
+
+        case "Clients":
+            color = "#f76f00";
+            break;
+
+        case "Process":
+            color = "#2be317";
+            break;
+        default:
+            color = "#FFFFFF";
+            break;
+    }
+    return color;
 }
 
 export default function CommandCard({
@@ -68,10 +89,7 @@ export default function CommandCard({
                                         commandConfirm
                                     }: Command) {
     const [open, toggleOpen] = React.useState(false);
-    // const [siteName, setSiteName] = useState<(SiteOptionType | null)>(null);
     const [site, setSite] = React.useState<SiteOptionType | null>(null);
-    const [value, setValue] = React.useState<SiteOptionType | null>(null);
-    // const [siteUrl, setSiteUrl] = useState('');
     const [dialogValue, setDialogValue] = React.useState({name: '', url: '',});
     const [commandNameState, setCommandNameState] = useState('');
     const [commandParametersState, setCommandParametersState] = useState('');
@@ -150,8 +168,8 @@ export default function CommandCard({
 
     function executeCommand(command: Command) {
         // if (confirmCommandExecution) {
-            console.log(`Launching command ${command.commandName} with parameters ${command.commandParameters} and wait: ${command.commandWait}`);
-            clientHandler.executeCommand(command);
+        console.log(`Launching command ${command.commandName} with parameters ${command.commandParameters} and wait: ${command.commandWait}`);
+        clientHandler.executeCommand(command);
         // }
     }
 
@@ -174,8 +192,7 @@ export default function CommandCard({
 
         if (commandConfirm) {
             setOpenDialog(true);
-        }
-        else{
+        } else {
             // setConfirmCommandExecution(true);
             executeCommand(command)
         }
@@ -207,7 +224,7 @@ export default function CommandCard({
                     subtitle="Subtitle"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="div" align={"center"}>
+                    <Typography gutterBottom variant="h6" component="div" align={"center"} sx={{marginLeft: "5px"}}>
                         {commandDescription}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" align={"center"}>
@@ -233,7 +250,7 @@ export default function CommandCard({
                         filterOptions={(options, params) => {
                             const filtered = filter(options, params);
 
-                            const { inputValue } = params;
+                            const {inputValue} = params;
                             // Suggest the creation of a new value
                             const isExisting = options.some((option) => inputValue === option.url);
                             if (inputValue !== '' && !isExisting) {
@@ -263,7 +280,7 @@ export default function CommandCard({
                             return option.url;
                         }}
                         renderOption={(props, option) => <li {...props}>{option.url}</li>}
-                        sx={{ width: 300 }}
+                        sx={{width: 290}}
                         freeSolo
                         renderInput={(params) => (
                             <TextField {...params} label="Url del sito" />
@@ -330,7 +347,7 @@ export default function CommandCard({
                     // subtitle="Subtitle"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="div" align={"center"}>
+                    <Typography gutterBottom variant="h6" component="div" align={"center"} >
                         {commandDescription}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" align={"center"}>
@@ -394,11 +411,8 @@ export default function CommandCard({
         default: {
             return (
                 <Grid2 xs={4}>
-                    <Card sx={{maxWidth: 345}}>
-                        <CardHeader
-                            title={getIcon(commandType)}
-                            subtitle="Subtitle"
-                        />
+                    <Card sx={{maxWidth: 345/*, backgroundColor: getCardColor(commandType)*/}}>
+                        <CardHeader title={getIcon(commandType)} subtitle="Subtitle"/>
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="div" align={"center"}>
                                 {commandDescription}

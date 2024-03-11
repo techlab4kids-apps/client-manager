@@ -88,6 +88,7 @@
     "commandType": "Process",
     "commandScript": true,
     "commandConfirm": false
+
   },
   {
     "commandDescription": "Chiudi i browser",
@@ -173,7 +174,7 @@
   },
   {
     "commandDescription": "Apri GCompris",
-    "commandName": "/opt/gcompris-qt-3.2-Linux/bin/gcompris-qt.sh",
+    "commandName": "/opt/gcompris/bin/gcompris-qt.sh",
     "commandParameters": "",
     "commandWait": false,
     "commandType": "Process",
@@ -201,7 +202,7 @@
   {
     "commandDescription": "Chiudi Scratch Junior",
     "commandName": "killall",
-    "commandParameters": "-9 ScratchJr",
+    "commandParameters": "-9 ScratchJr-TL4K",
     "commandWait": false,
     "commandType": "Process",
     "commandScript": false,
@@ -265,6 +266,24 @@
     "commandDescription": "Testo più piccolo (91 DPI)",
     "commandName": "change_text_dpi.sh",
     "commandParameters": "91",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Font più leggibile",
+    "commandName": "change_text_font_dyslexic.sh",
+    "commandParameters": "",
+    "commandWait": false,
+    "commandType": "Process",
+    "commandScript": true,
+    "commandConfirm": false
+  },
+  {
+    "commandDescription": "Font standard",
+    "commandName": "change_text_font_ubuntu.sh",
+    "commandParameters": "",
     "commandWait": false,
     "commandType": "Process",
     "commandScript": true,

@@ -11,9 +11,13 @@
 }
 
 .MuiAutocomplete-input {
-    padding: 0px 0px 7.5px 0px;
+    padding: 0px 0px 0px 0px;
+    margin-top: -4px;
 }
 
 .MuiGrid2-root{
     margin-bottom: 20px;
+}
+.MuiTypography-root{
+    margin-left: 5px;
 }
