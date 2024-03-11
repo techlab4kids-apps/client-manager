@@ -64,8 +64,8 @@
     "@electron-forge/maker-squirrel": "^7.3.0",
     "@electron-forge/maker-zip": "^7.3.0",
     "@types/node": "^18.11.11",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "^18.0.9",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
     "browser-sync": "^0.9.1",
     "concurrently": "^5.2.0",
     "dotenv": "^16.0.3",
@@ -76,7 +76,7 @@
     "jest": "^29.2.2",
     "nodemon": "^2.0.20",
     "prettier": "^2.5.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^5.1.0-next.14",
     "react-test-renderer": "^18.2.0",
     "supertest": "^6.2.4",
     "ts-jest": "^29.0.3",
@@ -107,17 +107,12 @@
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
+          "name": "electron-forge-maker-appimage",
+          "platforms": ["linux"],
+          "config": {  }
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ]
