@@ -283,7 +283,7 @@ export default function CommandCard({
                         sx={{width: 290}}
                         freeSolo
                         renderInput={(params) => (
-                            <TextField {...params} label="Url del sito" />
+                            <TextField {...params} label="Url del sito"/>
                         )}
                     />
 

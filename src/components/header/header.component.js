@@ -10,6 +10,7 @@ import {Badge} from "@mui/material";
 import ComputerTwoToneIcon from "@mui/icons-material/ComputerTwoTone";
 import create from 'zustand'
 import {clientsStore} from "../../App";
+import version from "../../../package.json";
 
 export default function Header() {
 
@@ -24,30 +25,23 @@ export default function Header() {
     let clients = useClientsStore((state) => state.clients);
     clientCount = clients.length;
 
-    console.log("version number ", process.env.VERSION);
-
     return (
         <AppBar position="static">
             <Toolbar>
-                {/*Inside the IconButton, we
-           can render various icons*/}
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{mr: 2}}
-                >
-                    <MenuIcon/>
-                </IconButton>
 
-                <Typography variant="h6"
-                            component="div" sx={{flexGrow: 1}}>
-                    TechLAB4Kids client manager
+                <Typography component="div" sx={{flexGrow: 1}}>
+                    <h2 style={{display: "inline", paddingRight: 12}}>
+                        TechLAB4Kids client manager
+                    </h2>
+                    
+                    <p1 style={{fontSize: 15}}>
+                        {version.version}
+                    </p1>
+
                 </Typography>
 
                 <Typography variant="h6"
-                            component="div" sx={{flexGrow: 1}}>
+                            component="div" sx={{flexGrow: 1, textAlign: "right"}}>
                     Client connessi
                     <Badge sx={{m: 1}} badgeContent={clientCount} color="secondary">
                         <ComputerTwoToneIcon color="action"/>
