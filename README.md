@@ -26,11 +26,11 @@ npm run dev
 Check in the package.json under `config` the platforms' target for your app build and the name for it, then run:
 
 ```
-npm run package
+npm run build
 ```
 
 ```
-npm run make
+npm app:dist
 ```
 <h3>
 scambio dati electron react
