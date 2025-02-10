@@ -184,7 +184,7 @@
     {
       "commandDescription": "Chiudi GCompris",
       "commandName": "killall",
-      "commandParameters": "-9 gcompris-qt",
+      "commandParameters": "-9 AppRun.wrapped",
       "commandWait": false,
       "commandType": "Process",
       "commandScript": false,
@@ -202,7 +202,7 @@
     {
       "commandDescription": "Chiudi Scratch Junior",
       "commandName": "killall",
-      "commandParameters": "-9 ScratchJr-TL4K",
+      "commandParameters": "-9 scratchjr",
       "commandWait": false,
       "commandType": "Process",
       "commandScript": false,
